@@ -21,24 +21,20 @@
 function concatenateStrings(value1, value2) {
   return (value1 + value2);
 }
-console.log (concatenateStrings('', 'bb'));
 
 /**
  * Returns the length of given string.
  *
  * @param {string} value
  * @return {number}
- *
  * @example
  *   'aaaaa' => 5
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength( value ) {
+function getStringLength(value) {
   return (value.length);
 }
-
-console.log (getStringLength('aaaaa'));
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -56,7 +52,6 @@ console.log (getStringLength('aaaaa'));
 function getStringFromTemplate(firstName, lastName) {
   return (`Hello, ${firstName} ${lastName}!`);
 }
-console.log (getStringFromTemplate('John','Doe'));
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
@@ -69,7 +64,7 @@ console.log (getStringFromTemplate('John','Doe'));
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
- return (value.slice(7, value.length - 1));
+  return (value.slice(7, value.length - 1));
 }
 
 
@@ -86,7 +81,6 @@ function extractNameFromTemplate(value) {
 function getFirstChar(value) {
   return (value[0]);
 }
-console.log (getFirstChar('cat'));
 
 /**
  * Removes a leading and trailing whitespace characters from string.
@@ -112,7 +106,6 @@ function removeLeadingAndTrailingWhitespaces(value) {
   return (rezult.replace(/^[a-z]+/, ''));
 }
 
-console.log (removeLeadingAndTrailingWhitespaces('   Abracadabra'))
 
 /**
  * Returns a string that repeated the specified number of times.
@@ -127,13 +120,12 @@ console.log (removeLeadingAndTrailingWhitespaces('   Abracadabra'))
  */
 function repeatString(value, count) {
   let rezult = '';
-  for (let i = count; i!==0; i--) {
-    rezult = rezult + value;
+  for (let i = count; i !== 0; i -= 1) {
+    rezult += value;
   }
   return (rezult);
 }
 
-console.log (repeatString ('cat', 5))
 /**
  * Remove the first occurrence of string inside another string
  *
@@ -147,9 +139,8 @@ console.log (repeatString ('cat', 5))
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  return (str.replace(value, ""))
+  return (str.replace(value, ''));
 }
-console.log (removeFirstOccurrences('ABABAB','BA'));
 /**
  * Remove the first and last angle brackets from tag string
  *
@@ -162,9 +153,8 @@ console.log (removeFirstOccurrences('ABABAB','BA'));
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return (str.slice(1,str.length-1));
+  return (str.slice(1, str.length - 1));
 }
-console.log ( unbracketTag('<div>'))
 
 /**
  * Converts all characters of the specified string into the upper case
@@ -177,9 +167,9 @@ console.log ( unbracketTag('<div>'))
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-  return (str.toUpperCase())
+  return (str.toUpperCase());
 }
-console.log (convertToUpperCase('Thunderstruck'))
+
 /**
  * Extracts e-mails from single string with e-mails list delimeted by semicolons
  *
@@ -196,9 +186,9 @@ console.log (convertToUpperCase('Thunderstruck'))
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return (str.split(';'))
+  return (str.split(';'));
 }
-console.log (extractEmails('angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com'))
+
 /**
  * Returns the string representation of rectangle with specified width and height
  * using pseudograhic chars
@@ -223,43 +213,37 @@ console.log (extractEmails('angus.young@gmail.com;brian.johnson@hotmail.com;bon.
  *
  */
 function getRectangleString(width, height) {
-  let rezult = "";
-  for (let i = 1; i <= width; i++) {
+  let rezult = '';
+  for (let i = 1; i <= width; i += 1) {
     if (i === 1) {
-      rezult = rezult + "┌";
-    }
-    else if (i === width) {
+      rezult += '┌';
+    } else if (i === width) {
       rezult = `${rezult}┐`;
-    }
-    else {
-      rezult = rezult + "─"
+    } else {
+      rezult += '─';
     }
   }
-  for (let j = height - 2; j > 0; j--) {
+  for (let j = height - 2; j > 0; j -= 1) {
     rezult = `${rezult}\n│`;
-    for (let k = 1; k < width; k++ ){
-      if (k === width-1) {
-        rezult = `${rezult}│`
-      }
-      else {
-        rezult = rezult + ' ';
+    for (let k = 1; k < width; k += 1) {
+      if (k === width - 1) {
+        rezult = `${rezult}│`;
+      } else {
+        rezult += ' ';
       }
     }
   }
-  for (let t = 1; t <= width; t++) {
+  for (let t = 1; t <= width; t += 1) {
     if (t === 1) {
       rezult = `${rezult}\n└`;
-    }
-    else if (t === width) {
+    } else if (t === width) {
       rezult = `${rezult}┘\n`;
-    }
-    else {
-      rezult = rezult + "─"
+    } else {
+      rezult += '─';
     }
   }
   return (rezult);
 }
-console.log (getRectangleString(2, 2));
 
 /**
  * Encode specified string with ROT13 cipher
@@ -281,29 +265,27 @@ function encodeToRot13(str) {
   const alphabetUp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const alphabetDown = 'abcdefghijklmnopqrstuvwxyz';
   let rezultString = '';
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     let index = i;
     if (alphabetUp.indexOf(str[i]) >= 0) {
       index = alphabetUp.indexOf(str[i]) + 13;
       if (index > alphabetUp.length - 1) {
-        index = index - alphabetUp.length;
+        index -= alphabetUp.length;
       }
-      rezultString = rezultString + alphabetUp[index];
-    }
-    else if (alphabetDown.indexOf(str[i]) >= 0) {
+      rezultString += alphabetUp[index];
+    } else if (alphabetDown.indexOf(str[i]) >= 0) {
       index = alphabetDown.indexOf(str[i]) + 13;
       if (index > alphabetDown.length - 1) {
-        index = index - alphabetDown.length;
+        index -= alphabetDown.length;
       }
-      rezultString = rezultString + alphabetDown[index];
-    }
-    else {
-      rezultString = rezultString + str[i];
+      rezultString += alphabetDown[index];
+    } else {
+      rezultString += str[i];
     }
   }
   return (rezultString);
 }
-console.log (encodeToRot13('ABCD abc'));
+
 /**
  * Returns true if the value is string; otherwise false.
  * @param {string} value
@@ -318,9 +300,8 @@ console.log (encodeToRot13('ABCD abc'));
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return (typeof(value) === 'string' || value instanceof String);
+  return (typeof (value) === 'string' || value instanceof String);
 }
-console.log (typeof(null));
 
 /**
  * Returns playid card id.
@@ -347,11 +328,11 @@ console.log (typeof(null));
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const arrayCards = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-  'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-  'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
- return (arrayCards.indexOf(value));
+  const arrayCards = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  return (arrayCards.indexOf(value));
 }
 
 

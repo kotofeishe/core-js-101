@@ -53,7 +53,6 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-
   return (value1 / 2 + value2 / 2);
 }
 
@@ -73,7 +72,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return (Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));
+  return (Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
 /**
@@ -112,8 +111,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const chisl = x1 *x2 + y1 * y2;
-  const znam = Math.sqrt(x1*x1 + y1*y1)* Math.sqrt(x2*x2 + y2*y2);
+  const chisl = x1 * x2 + y1 * y2;
+  const znam = Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2);
   if (znam === 0) {
     return 0;
   }
@@ -168,7 +167,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  return (Math.sqrt(a*a + b*b + c*c));
+  return (Math.sqrt(a * a + b * b + c * c));
 }
 
 
@@ -191,26 +190,24 @@ function getParallelepipedDiagonal(a, b, c) {
  */
 function roundToPowerOfTen(num, pow) {
   let numString = num.toString();
-  let rezult = '';
   if (pow === 0) {
     return num;
   }
-  for (let i = 1; i <= pow; i++) {
-    if (+numString[numString.length - 1] >= 5){
+  for (let i = 1; i <= pow; i += 1) {
+    if (+numString[numString.length - 1] >= 5) {
       numString = numString.slice(0, -1);
-      let last = +numString[numString.length - 1] + 1;
+      const last = +numString[numString.length - 1] + 1;
       numString = numString.slice(0, -1) + last.toString();
-    }
-    else {
-    numString = numString.slice(0, -1);  
+    } else {
+      numString = numString.slice(0, -1);
     }
   }
-  for (let i = 1; i <= pow; i++) {
-    numString = numString + '0';  
+  for (let i = 1; i <= pow; i += 1) {
+    numString += '0';
   }
   return numString;
 }
-console.log (roundToPowerOfTen(9678, 1))
+
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -255,16 +252,13 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  const typeValue = typeof(+value);
-  console.log (+value);
-  if (typeValue === 'number' && !isNaN(+value)) {
+  const typeValue = typeof (+value);
+  if (typeValue === 'number' && !Number.isNaN(+value)) {
     return (+value);
   }
-  else {
-    return def;
-  }
+
+  return def;
 }
-console.log (toNumber('test', 0))
 module.exports = {
   getRectangleArea,
   getCircleCircumference,
